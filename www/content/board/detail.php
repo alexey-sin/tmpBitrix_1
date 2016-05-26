@@ -6,7 +6,7 @@ $APPLICATION->SetTitle("Объявление детально");
 
 <?$APPLICATION->IncludeComponent("bitrix:catalog.element", "board", array(
 	"IBLOCK_TYPE" => "services",
-	"IBLOCK_ID" => "9",
+	"IBLOCK_ID" => "17",
 	"ELEMENT_ID" => $_REQUEST["ELEMENT_ID"],
 	"ELEMENT_CODE" => "",
 	"SECTION_ID" => $_REQUEST["SECTION_ID"],

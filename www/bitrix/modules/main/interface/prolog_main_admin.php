@@ -295,53 +295,8 @@ if ($curPage != "/bitrix/admin/index.php")
 //Content
 
 if($USER->IsAuthorized()):
-	if(defined("DEMO") && DEMO == "Y"):
-		$vendor = COption::GetOptionString("main", "vendor", "1c_bitrix");
-		$delta = $SiteExpireDate-time();
-		$daysToExpire = ($delta < 0? 0 : ceil($delta/86400));
-		$bSaas = (COption::GetOptionString('main', '~SAAS_MODE', "N") == "Y");
-
-		echo BeginNote('style="position: relative; top: -15px;"');
-		if(isset($bxProductConfig["saas"])):
-			if($bSaas)
-			{
-				if($daysToExpire > 0)
-				{
-					if($daysToExpire <= $bxProductConfig["saas"]["days_before_warning"])
-					{
-						$sWarn = $bxProductConfig["saas"]["warning"];
-						$sWarn = str_replace("#RENT_DATE#", COption::GetOptionString('main', '~support_finish_date'), $sWarn);
-						$sWarn = str_replace("#DAYS#", $daysToExpire, $sWarn);
-						echo $sWarn;
-					}
-				}
-				else
-				{
-					echo str_replace("#RENT_DATE#", COption::GetOptionString('main', '~support_finish_date'), $bxProductConfig["saas"]["warning_expired"]);
-				}
-			}
-			else
-			{
-				if($daysToExpire > 0)
-					echo str_replace("#DAYS#", $daysToExpire, $bxProductConfig["saas"]["trial"]);
-				else
-					echo $bxProductConfig["saas"]["trial_expired"];
-			}
-		else: //saas
-?>
-	<span class="required"><?echo GetMessage("TRIAL_ATTENTION") ?></span>
-	<?echo GetMessage("TRIAL_ATTENTION_TEXT1_".$vendor) ?>
-	<?if ($daysToExpire >= 0):?>
-	<?echo GetMessage("TRIAL_ATTENTION_TEXT2") ?> <span class="required"><b><?echo $daysToExpire?></b></span> <?echo GetMessage("TRIAL_ATTENTION_TEXT3") ?>.
-	<?else:?>
-	<?echo GetMessage("TRIAL_ATTENTION_TEXT4_".$vendor) ?>
-	<?endif;?>
-	<?echo GetMessage("TRIAL_ATTENTION_TEXT5_".$vendor) ?>
-<?
-		endif; //saas
-		echo EndNote();
-
-	elseif($USER->CanDoOperation('install_updates')):
+	
+	if($USER->CanDoOperation('install_updates')):
 		//show support ending warning
 
 		$supportFinishDate = COption::GetOptionString('main', '~support_finish_date', '');

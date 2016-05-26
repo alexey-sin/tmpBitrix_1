@@ -5,7 +5,7 @@ $DBType = "mysql";
 $DBHost = "localhost";
 $DBLogin = "root";
 $DBPassword = "";
-$DBName = "mysite";
+$DBName = "sitemanager";
 $DBDebug = false;
 $DBDebugToFile = false;
 

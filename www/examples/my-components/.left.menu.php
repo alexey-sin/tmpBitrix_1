@@ -19,7 +19,7 @@ $aMenuLinks = Array(
 
 	Array(
 		"Новость детально",
-		"/examples/my-components/news_detail.php?ID=9",
+		"/examples/my-components/news_detail.php?ID=10",
 		Array("/examples/my-components/news_detail.php"),
 		Array(),
 		""

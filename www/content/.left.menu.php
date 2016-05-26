@@ -22,6 +22,27 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
+		"Галерея", 
+		"/content/photo/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Галереи пользователей", 
+		"/content/gallery/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Есть идея?", 
+		"/content/idea/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"Доска объявлений", 
 		"/content/board/", 
 		Array(), 
@@ -38,6 +59,13 @@ $aMenuLinks = Array(
 	Array(
 		"Часто задаваемые вопросы", 
 		"/content/faq/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Календарь событий", 
+		"/content/calendar/", 
 		Array(), 
 		Array(), 
 		"" 

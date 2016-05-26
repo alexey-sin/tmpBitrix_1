@@ -5,7 +5,7 @@ $APPLICATION->SetTitle("Часто задаваемые вопросы");
 
 <?$APPLICATION->IncludeComponent("bitrix:support.faq", ".default", Array(
 	"IBLOCK_TYPE"	=>	"services",
-	"IBLOCK_ID"	=>	"11",
+	"IBLOCK_ID"	=>	"19",
 	"SECTION"	=>	"-",
 	"EXPAND_LIST"	=>	"N",
 	"SEF_MODE"	=>	"Y",

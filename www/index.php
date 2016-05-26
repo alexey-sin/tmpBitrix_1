@@ -2,15 +2,17 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Демонстрационная версия продукта «1С-Битрикс: Управление сайтом»");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
-$APPLICATION->SetTitle("Каталог книг");
-?> <?$APPLICATION->IncludeComponent(
+$APPLICATION->SetTitle("Каталог товаров из 1C:Предприятие");
+?>
+
+<?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
 	"",
 	Array(
-		"IBLOCK_TYPE" => "books",
-		"IBLOCK_ID" => "6",
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],
-		"SECTION_URL" => "/e-store/books/#SECTION_ID#/",
+		"IBLOCK_TYPE" => "xmlcatalog",
+		"IBLOCK_ID" => "8",
+		"SECTION_ID" =>"",
+		"SECTION_URL" => "/e-store/xml_catalog/#SECTION_ID#/",
 		"COUNT_ELEMENTS" => "Y",
 		"DISPLAY_PANEL" => "N",
 		"CACHE_TYPE" => "A",
@@ -19,29 +21,34 @@ $APPLICATION->SetTitle("Каталог книг");
 );?>
 <hr />
 
-<?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.top",
-	"",
-	Array(
-		"IBLOCK_TYPE" => "books",
-		"IBLOCK_ID" => "6",
-		"ELEMENT_SORT_FIELD" => "sort",
-		"ELEMENT_SORT_ORDER" => "asc",
-		"SECTION_URL" => "/e-store/books/#SECTION_ID#/",
-		"DETAIL_URL" => "/e-store/books/#SECTION_ID#/#ELEMENT_ID#/",
-		"BASKET_URL" => "/personal/cart/",
-		"ACTION_VARIABLE" => "action",
-		"PRODUCT_ID_VARIABLE" => "id",
-		"SECTION_ID_VARIABLE" => "SECTION_ID",
-		"DISPLAY_COMPARE" => "N",
-		"ELEMENT_COUNT" => "3",
-		"LINE_ELEMENT_COUNT" => "1",
-		"PROPERTY_CODE" => Array(),
-		"PRICE_CODE" => Array("RETAIL"),
-		"USE_PRICE_COUNT" => "N",
-		"SHOW_PRICE_COUNT" => "1",
-		"CACHE_TYPE" => "A",
-		"CACHE_TIME" => "3600"
+<?$APPLICATION->IncludeComponent("bitrix:catalog.top", ".default", Array(
+	"IBLOCK_TYPE"	=>	"xmlcatalog",
+	"IBLOCK_ID"	=>	"8",
+	"ELEMENT_SORT_FIELD"	=>	"sort",
+	"ELEMENT_SORT_ORDER"	=>	"asc",
+	"ELEMENT_COUNT"	=>	"3",
+	"LINE_ELEMENT_COUNT"	=>	"1",
+	"PROPERTY_CODE"	=>	array(
+		1	=>	"CML2_ARTICLE",
+		2	=>	"CML2_BASE_UNIT",
+		3	=>	"CML2_TRAITS",
+		4	=>	"CML2_ATTRIBUTES",
+		5	=>	"CML2_BAR_CODE",
+	),
+	"SECTION_URL"	=>	"/e-store/xml_catalog/#SECTION_ID#/",
+	"DETAIL_URL"	=>	"/e-store/xml_catalog/#SECTION_ID#/#ELEMENT_ID#/",
+	"BASKET_URL"	=>	"/personal/cart/",
+	"ACTION_VARIABLE"	=>	"action",
+	"PRODUCT_ID_VARIABLE"	=>	"id",
+	"SECTION_ID_VARIABLE"	=>	"SECTION_ID",
+	"CACHE_TYPE"	=>	"A",
+	"CACHE_TIME"	=>	"3600",
+	"DISPLAY_COMPARE"	=>	"N",
+	"PRICE_CODE"	=>	array(
+		0	=>	"Розничная",
+	),
+	"USE_PRICE_COUNT"	=>	"N",
+	"SHOW_PRICE_COUNT"	=>	"1"
 	)
 );?>
 
@@ -83,6 +90,44 @@ $APPLICATION->SetTitle("Каталог книг");
 false
 );?>
 
-<!-- --><!-- -->
+<!-- --><h2>Новые фотографии</h2>
+<?$APPLICATION->IncludeComponent(
+	"bitrix:photogallery.detail.list",
+	".default",
+	Array(
+		"IBLOCK_TYPE" => "photos",
+		"IBLOCK_ID" => "11",
+		"BEHAVIOUR" => "USER",
+		"USER_ALIAS" => $_REQUEST["USER_ALIAS"],
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"ELEMENT_LAST_TYPE" => "none",
+		"USE_DESC_PAGE" => "N",
+		"ELEMENT_SORT_FIELD" => "sort",
+		"ELEMENT_SORT_ORDER" => "asc",
+		"PAGE_ELEMENTS" => "6",
+		"DETAIL_URL" => "/content/gallery/#USER_ALIAS#/#SECTION_ID#/#ELEMENT_ID#/",
+		"DETAIL_SLIDE_SHOW_URL" => "/content/gallery/#USER_ALIAS#/#SECTION_ID#/#ELEMENT_ID#/slide_show/",
+		"SEARCH_URL" => "/content/gallery/search/",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"PAGE_NAVIGATION_TEMPLATE" => "",
+		"USE_PERMISSIONS" => "N",
+		"GROUP_PERMISSIONS" => array(0=>"1",1=>"",),
+		"COMMENTS_TYPE" => "none",
+		"SET_TITLE" => "N",
+		"DATE_TIME_FORMAT" => "d.m.Y",
+		"ADDITIONAL_SIGHTS" => array(),
+		"PICTURES_SIGHT" => "",
+		"THUMBNAIL_SIZE" => "90",
+		"SHOW_PAGE_NAVIGATION" => "none",
+		"SHOW_CONTROLS" => "N",
+		"SHOW_RATING" => "N",
+		"SHOW_SHOWS" => "N",
+		"SHOW_COMMENTS" => "N",
+		"SHOW_TAGS" => "N",
+		"MAX_VOTE" => "5",
+		"VOTE_NAMES" => array(0=>"1",1=>"2",2=>"3",3=>"4",4=>"5",5=>"",)
+	)
+);?><!-- -->
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

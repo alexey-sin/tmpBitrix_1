@@ -148,7 +148,7 @@ class CAdminNotify
 	public static function GetHtml()
 	{
 		global $CACHE_MANAGER;
-		$arNotify = false;
+		$arNotify = false; $html = "";
 
 		if($CACHE_MANAGER->Read(86400, "admin_notify_list_".LANGUAGE_ID))
 			$arNotify = $CACHE_MANAGER->Get("admin_notify_list_".LANGUAGE_ID);
@@ -169,9 +169,10 @@ class CAdminNotify
 				$ar["MESSAGE"] = $CBXSanitizer->SanitizeHtml((''!= $ar['MESSAGE_LANG'] ? $ar['MESSAGE_LANG'] : $ar['MESSAGE']));
 				$arNotify[] = $ar;
 			}
-			$CACHE_MANAGER->Set("admin_notify_list_".LANGUAGE_ID, $arNotify);
+			// $CACHE_MANAGER->Set("admin_notify_list_".LANGUAGE_ID, $arNotify);
 		}
-
+// $html = "ddssssddd\r\n";
+// echo "ghghghghgh\r\n";exit("ghghghghgh\r\n");
 		$html = "";
 		foreach ($arNotify as $value)
 		{

@@ -6,7 +6,7 @@ $APPLICATION->SetTitle("Доска объявлений");
 
  <?$APPLICATION->IncludeComponent("bitrix:catalog.section", "board", array(
 	"IBLOCK_TYPE" => "services",
-	"IBLOCK_ID" => "9",
+	"IBLOCK_ID" => "17",
 	"SECTION_ID" => $_REQUEST["SECTION_ID"],
 	"SECTION_CODE" => "",
 	"ELEMENT_SORT_FIELD" => "sort",

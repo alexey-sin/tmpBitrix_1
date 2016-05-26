@@ -9,7 +9,7 @@ $APPLICATION->SetTitle("Видео и аудио");
 	"PATH_TO_FILE" => "15",
 	"DURATION" => "16",
 	"SECTION_ID" => "9",
-	"ELEMENT_ID" => "15",
+	"ELEMENT_ID" => "16",
 	"WIDTH" => "400",
 	"HEIGHT" => "300",
 	"CACHE_TYPE" => "A",

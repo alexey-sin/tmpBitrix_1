@@ -3,7 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Доска объявлений");
 ?><?$APPLICATION->IncludeComponent("bitrix:iblock.element.add", ".default", Array(
 	"IBLOCK_TYPE"	=>	"services",
-	"IBLOCK_ID"	=>	"9",
+	"IBLOCK_ID"	=>	"17",
 	"NAV_ON_PAGE"	=>	"10",
 	"USE_CAPTCHA"	=>	"Y",
 	"USER_MESSAGE_ADD"	=>	"Ваше объявление добавлено",
@@ -13,8 +13,8 @@ $APPLICATION->SetTitle("Доска объявлений");
 		1	=>	"DATE_ACTIVE_TO",
 		2	=>	"IBLOCK_SECTION",
 		3	=>	"DETAIL_TEXT",
-		4	=>	"55",
-		5	=>	"56",
+		4	=>	"67",
+		5	=>	"68",
 	),
 	"PROPERTY_CODES_REQUIRED"	=>	array(
 		0	=>	"NAME",
@@ -27,7 +27,7 @@ $APPLICATION->SetTitle("Доска объявлений");
 	"STATUS"	=>	"ANY",
 	"STATUS_NEW"	=>	"N",
 	"ELEMENT_ASSOC"	=>	"PROPERTY_ID",
-	"ELEMENT_ASSOC_PROPERTY"	=>	"58",
+	"ELEMENT_ASSOC_PROPERTY"	=>	"70",
 	"ALLOW_EDIT"	=>	"Y",
 	"ALLOW_DELETE"	=>	"Y",
 	"MAX_USER_ENTRIES"	=>	"20",

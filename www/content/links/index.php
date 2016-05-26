@@ -6,7 +6,7 @@ $APPLICATION->SetTitle("Каталог ресурсов");
 
  <?$APPLICATION->IncludeComponent("bitrix:catalog.section", "links", array(
 	"IBLOCK_TYPE" => "services",
-	"IBLOCK_ID" => "10",
+	"IBLOCK_ID" => "18",
 	"SECTION_ID" => $_REQUEST["SECTION_ID"],
 	"SECTION_CODE" => "",
 	"ELEMENT_SORT_FIELD" => "sort",
